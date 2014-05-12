@@ -93,8 +93,8 @@ def update():
 	for i in objects:
 		i.update()
 	
-	camx = (player.x - SCREEN_WIDTH / 4)
-	camy = (player.y - SCREEN_HEIGHT / 4)
+	camx = player.x
+	camy = player.y
 	
 """
 	If you're interested in how I chose the aesthetic, refer to this:
@@ -105,14 +105,19 @@ def update():
 """
 		
 def draw():	
+
+	camx = int(player.x)
+	camy = int(player.y)
 	
-	window.fill(c_black)
+	window.fill(c_cornflower)
 	for i in backgrounds:
 		#draw the image, taking into account the camera.
 		window.blit(pygame.transform.scale(i.image, (SCREEN_WIDTH, SCREEN_HEIGHT)), (0,0), (camx, camy, SCREEN_WIDTH, SCREEN_HEIGHT))
+		#This works fine without any problems. So, like, what the fuck, man?
 	for i in objects:
 		if(i.visible):
-			window.blit(pygame.transform.scale(i.image, (i.w * rezh, i.h * rezv)), (i.x * rezh, i.y * rezv), (camx, camy, SCREEN_WIDTH, SCREEN_HEIGHT))
+			window.blit(pygame.transform.scale(i.image, (i.w * rezh, i.h * rezv)), (camx, camy))
+			#This seems to fuck up. Huh...
 		if(i.debug):
 			pass
 	
