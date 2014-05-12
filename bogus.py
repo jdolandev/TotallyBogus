@@ -106,8 +106,8 @@ def update():
 		
 def draw():	
 
-	camx = int(player.x)
-	camy = int(player.y)
+	camx = player.x
+	camy = player.y
 	
 	window.fill(c_cornflower)
 	for i in backgrounds:
@@ -116,7 +116,7 @@ def draw():
 		#This works fine without any problems. So, like, what the fuck, man?
 	for i in objects:
 		if(i.visible):
-			window.blit(pygame.transform.scale(i.image, (i.w * rezh, i.h * rezv)), (camx, camy))
+			window.blit(pygame.transform.scale(i.image, (i.w * rezh, i.h * rezv)), (camx, camy), (i.x, i.y, SCREEN_WIDTH, SCREEN_HEIGHT))
 			#This seems to fuck up. Huh...
 		if(i.debug):
 			pass

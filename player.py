@@ -25,7 +25,6 @@ from camera import *
 
 theme = Sound("snd/maintheme.wav", False)
 
-
 class Player(object):
 	def __init__(self, x, y, w, h, src):
 		self.x = x
@@ -39,7 +38,7 @@ class Player(object):
 		self.debug = False
 		self.image_index = 0
 		self.image_length = 1
-		#theme.play()
+		theme.play()
 	
 	"""
 	Sprite animation. I did a pretty shitty job of implementing this
@@ -50,7 +49,7 @@ class Player(object):
 		pass
 		
 	def update(self):
-		self.pos = (self.x, self.y)	#update the player's location
+		#self.pos = (self.x, self.y)	#update the player's location
 		self.image_index += 1	#Add one to the cycle
 		key = pygame.key.get_pressed()	#check for current key presses
 		#keyboard press logic
