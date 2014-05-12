@@ -1,0 +1,16 @@
+import 
+class windowProps(object):
+	def __init__(self):
+		objects.append(self)
+		self.visible = False
+	def update(self):
+		key = pygame.key.get_pressed()
+		if( key[pygame.K_ESCAPE]):
+			pygame.quit()
+			sys.exit()
+		for event in pygame.event.get():
+			if event.type == QUIT:
+				pygame.quit()
+				sys.exit()
+	def draw(self):
+		pass
